@@ -8,7 +8,6 @@ phases:
   build:
     commands:
       - echo "Adding lambda function to the deployment_package_doordash.zip................"
-      - cd ..
       - zip -g deployment_package_doordash.zip doordash_lambda.py
   post_build:
     commands:
