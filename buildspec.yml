@@ -15,5 +15,6 @@ phases:
       - aws s3 cp deployment_package_doordash.zip s3://s3-aws-de-cicd/
       - echo "Creating lambda function via s3.............."
       - aws lambda update-function-code --function-name aws-de-1-doordash --s3-bucket s3-aws-de-cicd --s3-key deployment_package_doordash.zip
+      - aws lambda wait function-updated --function-name aws-de-1-doordash
       - aws lambda update-function-configuration --function-name aws-de-1-doordash --handler doordash_lambda.lambda_handler
       - echo "Deployment complete !.............."
