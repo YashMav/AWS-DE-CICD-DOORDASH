@@ -11,7 +11,7 @@ phases:
       - zip -g deployment_package_doordash.zip doordash_lambda.py
   post_build:
     commands:
-      - echo 'Uploading to s3................."
+      - echo "Uploading to s3................."
       - aws s3 cp deployment_package_doordash.zip s3://s3-aws-de-cicd/
       - echo "Creating lambda function via s3.............."
       - aws lambda update-function-code --function-name aws-de-1-doordash --s3-bucket s3-aws-de-cicd --s3-key deployment_package_doordash.zip
